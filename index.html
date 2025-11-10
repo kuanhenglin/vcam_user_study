@@ -196,8 +196,8 @@
         <p>Thanks for doing our user study for video generation models! Particularly, you will be evaluating the task of <i>generative virtual camera</i>: Given an input video, we want to render the dynamic scene represented by this input video from a different, possibly moving camera viewpoint. You will be shown videos with <b>eight</b> items in a 2x4 grid: <b>Input video</b>, <b>Camera visualization</b>, and six shuffled methods (<b>Options A&ndash;F</b>). For each video, please answer the three questions below by selecting your preference out of the six methods. This user study should take about <b>30 minutes</b> to complete, during which you will look through <b>30 videos</b>.</p>
         <p><strong>Note:</strong> All methods receive the <i>same</i> <b>input video</b> and desired camera trajectory and zoom. To better communicate the camera motion to you, we provide the <b>camera visualization</b> video which roughly corresponds to the desired camera. We also provide a written <b>camera description</b> for the same purpose. (Camera visualization videos can have artifacts, so they might appear more jittery and noisy than the intended camera viewpoint. Use your best judgement when using it as a reference!)
         <p><strong>How to evaluate:</strong> Look at the <b>input video</b> (row 1, column 1), the <b>camera visualization</b> (row 2, column 1), and the written <b>camera description</b> to understand the intended camera and scene motion. Then, evaluate how well each <b>Option (A&ndash;F)</b> renders the scene from the new camera viewpoint while preserving the input video content and quality and pick the best option.</p>
-        <p><strong>Once completed:</strong> Click the <b>Download results</b> button at the bottom of the page and it will download a JSON file to your computer. Please email the JSON file to <a href="#" id="emailLink">jordan@cs.columbia.edu</a> with the subject line "[Video user study] Your name". Please make sure to have answered every question before sending your results, thanks!</p>
-        <p><strong>Warning:</strong> Refreshing the page might <i>erase</i> your progress, so try to do this user study in one sitting!</p>
+        <p><strong>Once completed:</strong> Click the <b>Download results</b> button at the bottom of the page and it will download a JSON file to your computer. Please email the JSON file to <a href="mailto:jordan@cs.columbia.edu">jordan@cs.columbia.edu</a> with the subject line "[Video user study] Your name". Please make sure to have answered every question before sending your results, thanks!</p>
+        <p><strong>Warning:</strong> Refreshing the page will <i>erase</i> your progress, so try to do this user study in one sitting!</p>
     </div>
 
     <div id="video-containers"></div>
@@ -207,7 +207,7 @@
         <textarea id="results" readonly placeholder="Results will appear here as you make selections ..."></textarea>
         <button id="downloadButton">Download results</button>
         <p style="margin-top: 15px; font-weight: bold; color: #333;">
-            Once completed, please click the Download results button and send the resulting JSON file to <a href="#" id="emailLink">jordan@cs.columbia.edu</a> with the subject line "[Video user study] Your name", along with how long it took you to complete this user study in the body of the email. Please make sure to have answered <i>every</i> question before sending your results. Thanks again for doing our user study :D
+            Once completed, please click the Download results button and send the resulting JSON file to <a href="mailto:jordan@cs.columbia.edu">jordan@cs.columbia.edu</a> with the subject line "[Video user study] Your name", along with how long it took you to complete this user study in the body of the email. Please make sure to have answered <i>every</i> question before sending your results. Thanks again for doing our user study :D
         </p>
         <p><i>If the button doesn't work, worry not! In that case copy the entire <b>Results (JSON format)</b> field (click on the text box and press Ctrl+A or Cmd+A to select all the results), save those results into a text file, and send it to the above email the same way :)</i></p>
     </div>
@@ -248,10 +248,6 @@
             const resultsTextarea = document.getElementById('results');
             const jsonData = JSON.stringify(results, null, 2);
             resultsTextarea.value = jsonData;
-            const emailLink = document.getElementById('emailLink');
-            const subject = 'Video User Study Results';
-            const body = `Here are my user study results:\n\n${jsonData}`;
-            emailLink.href = `mailto:rburgert@cs.stonybrook.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
         function downloadResults() {
